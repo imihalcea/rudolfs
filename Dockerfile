@@ -35,7 +35,7 @@ RUN \
 # use musl when building the application.
 FROM scratch
 
-EXPOSE 8080
+EXPOSE 9999
 VOLUME ["/data"]
 
 COPY --from=build /tini /tini
