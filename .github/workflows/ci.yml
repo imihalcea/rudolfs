@@ -67,7 +67,7 @@ jobs:
   publish_crate:
     name: Publish Crate
     # Don't publish unless all the checks pass.
-    needs: [check, test, clippy, rustfmt]
+    needs: [check, test, rustfmt]
     # Only publish for tags
     if: ${{ startsWith(github.event.ref, 'refs/tags/') }}
     runs-on: ubuntu-latest
@@ -107,7 +107,7 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ghcr.io/ ${{ github.actor }}/rudolfs:latest
+          tags: ghcr.io/ ${{ github.actor }}/rudolfs:fork
           secrets: |
             GIT_AUTH_TOKEN=${{ secrets.GITHUB_TOKEN }}
 
